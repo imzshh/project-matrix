@@ -660,6 +660,37 @@ export type WarehouseStrategy =
   ;
 
 /**
+ * IoT数据类型
+ */
+export type IotDataType =
+  | 'integer'
+  | 'long'
+  | 'float'
+  | 'double'
+  | 'text'
+  | 'boolean'
+  | 'date'
+  | 'datetime'
+  | 'json'
+  ;
+
+/**
+ * IoT TDengine 数据类型
+ */
+export type IotTdengineDataType =
+  | 'smallint'
+  | 'int'
+  | 'long'
+  | 'float'
+  | 'double'
+  | 'varchar'
+  | 'nchar'
+  | 'boolean'
+  | 'timestamp'
+  | 'json'
+  ;
+
+/**
  * 设置项类型
  */
 export type SettingItemType =

@@ -1,4 +1,4 @@
-import type { RapidPage as TRapidPage } from '@ruiapp/rapid-extension';
+import type { RapidPageLoader as TRapidPageLoader } from '@ruiapp/rapid-extension';
 import AppNavItemListPage from '../models/pages/AppNavItemListPage';
 import BaseEmployeeListPage from '../models/pages/BaseEmployeeListPage';
 import BaseFormFieldListPage from '../models/pages/BaseFormFieldListPage';
@@ -120,6 +120,11 @@ import inspection$stockout$MomPrilingStockOutInspectionSheetDetailsPage from '..
 import inspection$stockout$MomPrilingStockOutInspectionSheetList from '../models/pages/inspection/stockout/MomPrilingStockOutInspectionSheetList';
 import inspection$stockout$MomStockOutInspectionSheetDetailsPage from '../models/pages/inspection/stockout/MomStockOutInspectionSheetDetailsPage';
 import inspection$stockout$MomStockOutInspectionSheetListPage from '../models/pages/inspection/stockout/MomStockOutInspectionSheetListPage';
+import iot$IotGatewayDetailsPage from '../models/pages/iot/IotGatewayDetailsPage';
+import iot$IotGatewayListPage from '../models/pages/iot/IotGatewayListPage';
+import iot$IotThingListPage from '../models/pages/iot/IotThingListPage';
+import iot$IotTypeDetailsPage from '../models/pages/iot/IotTypeDetailsPage';
+import iot$IotTypeListPage from '../models/pages/iot/IotTypeListPage';
 import meta$MetaDataDictionaryListPage from '../models/pages/meta/MetaDataDictionaryListPage';
 import meta$MetaModelDataPage from '../models/pages/meta/MetaModelDataPage';
 import meta$MetaModelDetailsPage from '../models/pages/meta/MetaModelDetailsPage';
@@ -276,6 +281,11 @@ export default [
   inspection$stockout$MomPrilingStockOutInspectionSheetList,
   inspection$stockout$MomStockOutInspectionSheetDetailsPage,
   inspection$stockout$MomStockOutInspectionSheetListPage,
+  iot$IotGatewayDetailsPage,
+  iot$IotGatewayListPage,
+  iot$IotThingListPage,
+  iot$IotTypeDetailsPage,
+  iot$IotTypeListPage,
   meta$MetaDataDictionaryListPage,
   meta$MetaModelDataPage,
   meta$MetaModelDetailsPage,
@@ -309,4 +319,4 @@ export default [
   sys$SysPrinterListPage,
   sys$SysSubSystemListPage,
   sys$SysWebhookListPage,
-] as TRapidPage[];
+] as TRapidPageLoader[];

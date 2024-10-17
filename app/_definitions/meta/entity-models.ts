@@ -138,6 +138,12 @@ import bpm$BpmManualTask from '../models/entities/bpm/BpmManualTask';
 import bpm$BpmProcess from '../models/entities/bpm/BpmProcess';
 import bpm$BpmProcessCategory from '../models/entities/bpm/BpmProcessCategory';
 import bpm$BpmProcessRevision from '../models/entities/bpm/BpmProcessRevision';
+import iot$IotAttribute from '../models/entities/iot/IotAttribute';
+import iot$IotGateway from '../models/entities/iot/IotGateway';
+import iot$IotMeasurement from '../models/entities/iot/IotMeasurement';
+import iot$IotRule from '../models/entities/iot/IotRule';
+import iot$IotThing from '../models/entities/iot/IotThing';
+import iot$IotType from '../models/entities/iot/IotType';
 import pm$PmMilestone from '../models/entities/pm/PmMilestone';
 import pm$PmPhase from '../models/entities/pm/PmPhase';
 import pm$PmProject from '../models/entities/pm/PmProject';
@@ -298,6 +304,12 @@ const entityDefinitions = [
   bpm$BpmProcess,
   bpm$BpmProcessCategory,
   bpm$BpmProcessRevision,
+  iot$IotAttribute,
+  iot$IotGateway,
+  iot$IotMeasurement,
+  iot$IotRule,
+  iot$IotThing,
+  iot$IotType,
   pm$PmMilestone,
   pm$PmPhase,
   pm$PmProject,
@@ -458,6 +470,12 @@ const configuredEntities:TRapidEntity[] = [
   autoConfigureRapidEntity(bpm$BpmProcess, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmProcessCategory, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmProcessRevision, entityDefinitions),
+  autoConfigureRapidEntity(iot$IotAttribute, entityDefinitions),
+  autoConfigureRapidEntity(iot$IotGateway, entityDefinitions),
+  autoConfigureRapidEntity(iot$IotMeasurement, entityDefinitions),
+  autoConfigureRapidEntity(iot$IotRule, entityDefinitions),
+  autoConfigureRapidEntity(iot$IotThing, entityDefinitions),
+  autoConfigureRapidEntity(iot$IotType, entityDefinitions),
   autoConfigureRapidEntity(pm$PmMilestone, entityDefinitions),
   autoConfigureRapidEntity(pm$PmPhase, entityDefinitions),
   autoConfigureRapidEntity(pm$PmProject, entityDefinitions),
