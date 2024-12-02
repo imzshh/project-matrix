@@ -84,8 +84,7 @@ export default function Index() {
     <ConfigProvider locale={zhCN}>
       <Layout style={{ minHeight: "100vh" }} hasSider>
         <Sider className="rui-player-left-sider">
-          <div className="branch-logo"></div>
-          {/* <h1 className="branch-title 3333">华特MES</h1> */}
+          <h1 className="branch-title">Link Tower</h1>
           <AppLeftNav appCode={params.app} navItems={viewModel.navItems} />
         </Sider>
         <Layout>
