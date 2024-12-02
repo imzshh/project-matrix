@@ -4,10 +4,12 @@ declare const window: Window & {
   ENV: Record<string, any>;
 };
 
-if (typeof window !== "undefined" && window.ENV) {
-  env = window.ENV;
+if (typeof window !== "undefined") {
+  env = window.ENV || {};
+} else {
+  env = process.env;
 }
 
 export default {
-  apiBase: env.BACKEND_URL ? `${env.BACKEND_URL}/api` : "http://localhost:3000/api",
+  apiBase: env.RAPID_API_URL || "http://localhost:3000/api",
 };
