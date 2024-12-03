@@ -66,6 +66,7 @@ import UndeletedDeletedState from '../models/data-dictionaries/UndeletedDeletedS
 import UnitType from '../models/data-dictionaries/UnitType';
 import UserSecretLevel from '../models/data-dictionaries/UserSecretLevel';
 import WarehouseStrategy from '../models/data-dictionaries/WarehouseStrategy';
+import base$BasePartnerType from '../models/data-dictionaries/base/BasePartnerType';
 import iot$IotMeasurementDataType from '../models/data-dictionaries/iot/IotMeasurementDataType';
 import iot$IotPropertyDataType from '../models/data-dictionaries/iot/IotPropertyDataType';
 import iot$IotPropertyStorageType from '../models/data-dictionaries/iot/IotPropertyStorageType';
@@ -141,6 +142,7 @@ export default [
   UnitType,
   UserSecretLevel,
   WarehouseStrategy,
+  base$BasePartnerType,
   iot$IotMeasurementDataType,
   iot$IotPropertyDataType,
   iot$IotPropertyStorageType,

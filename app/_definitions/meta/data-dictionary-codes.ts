@@ -66,6 +66,7 @@ const dictionaryCodes = [
   'UnitType',
   'UserSecretLevel',
   'WarehouseStrategy',
+  'BasePartnerType',
   'IotMeasurementDataType',
   'IotPropertyDataType',
   'IotPropertyStorageType',

@@ -79,9 +79,9 @@ const orderItemFormConfig: Partial<RapidEntityFormConfig> = {
 };
 
 const page: RapidPage = {
-  code: "cbs_order_details",
+  code: "tower_purchase_order_details",
   //@ts-ignore
-  parentCode: "cbs_order_list",
+  parentCode: "tower_purchase_order_list",
   name: "订单详情",
   title: "订单详情",
   permissionCheck: { any: ["cbsOrder.view", "cbsOrder.manage"] },
@@ -157,11 +157,6 @@ const page: RapidPage = {
                 {
                   type: "auto",
                   code: "name",
-                  width: "200px",
-                },
-                {
-                  type: "auto",
-                  code: "tags",
                   width: "200px",
                 },
                 {
@@ -263,6 +258,21 @@ const page: RapidPage = {
               },
             },
           ],
+        },
+        {
+          key: "productionReports",
+          label: "生产进度",
+          children: [],
+        },
+        {
+          key: "deliveryReports",
+          label: "发货记录",
+          children: [],
+        },
+        {
+          key: "qualityReports",
+          label: "质检报告",
+          children: [],
         },
         {
           key: "projects",
@@ -456,7 +466,7 @@ const page: RapidPage = {
         },
         {
           key: "transactions",
-          label: "收支记录",
+          label: "付款记录",
           children: [
             {
               $id: "transactionList",

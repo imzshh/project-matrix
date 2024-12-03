@@ -1,14 +1,5 @@
 import type { RapidPageLoader as TRapidPageLoader } from '@ruiapp/rapid-extension';
 import AppNavItemListPage from '../models/pages/AppNavItemListPage';
-import BaseEmployeeListPage from '../models/pages/BaseEmployeeListPage';
-import BaseFormFieldListPage from '../models/pages/BaseFormFieldListPage';
-import BaseLocationListPage from '../models/pages/BaseLocationListPage';
-import BaseMaterialCategoryListPage from '../models/pages/BaseMaterialCategoryListPage';
-import BaseMaterialDetailsPage from '../models/pages/BaseMaterialDetailsPage';
-import BaseMaterialListPage from '../models/pages/BaseMaterialListPage';
-import BasePartnerCategoryListPage from '../models/pages/BasePartnerCategoryListPage';
-import BasePartnerListPage from '../models/pages/BasePartnerListPage';
-import BaseUnitListPage from '../models/pages/BaseUnitListPage';
 import CbsContractDetailsPage from '../models/pages/CbsContractDetailsPage';
 import CbsContractListPage from '../models/pages/CbsContractListPage';
 import CbsContractRelationKindListPage from '../models/pages/CbsContractRelationKindListPage';
@@ -85,6 +76,16 @@ import ShopfloorStationListPage from '../models/pages/ShopfloorStationListPage';
 import account$AccountChangePasswordPage from '../models/pages/account/AccountChangePasswordPage';
 import account$AccountNotificationListPage from '../models/pages/account/AccountNotificationListPage';
 import account$AccountProfilePage from '../models/pages/account/AccountProfilePage';
+import base$BaseEmployeeListPage from '../models/pages/base/BaseEmployeeListPage';
+import base$BaseFormFieldListPage from '../models/pages/base/BaseFormFieldListPage';
+import base$BaseLocationListPage from '../models/pages/base/BaseLocationListPage';
+import base$BaseMaterialCategoryListPage from '../models/pages/base/BaseMaterialCategoryListPage';
+import base$BaseMaterialDetailsPage from '../models/pages/base/BaseMaterialDetailsPage';
+import base$BaseMaterialListPage from '../models/pages/base/BaseMaterialListPage';
+import base$BasePartnerCategoryListPage from '../models/pages/base/BasePartnerCategoryListPage';
+import base$BasePartnerListPage from '../models/pages/base/BasePartnerListPage';
+import base$BasePurchaseOrderCategoryListPage from '../models/pages/base/BasePurchaseOrderCategoryListPage';
+import base$BaseUnitListPage from '../models/pages/base/BaseUnitListPage';
 import bpm$BpmCcToMeApplicationListPage from '../models/pages/bpm/BpmCcToMeApplicationListPage';
 import bpm$BpmInstanceDetailsPage from '../models/pages/bpm/BpmInstanceDetailsPage';
 import bpm$BpmMyFinishedApprovalListPage from '../models/pages/bpm/BpmMyFinishedApprovalListPage';
@@ -159,18 +160,12 @@ import sys$SysAuditLogkListPage from '../models/pages/sys/SysAuditLogkListPage';
 import sys$SysPrinterListPage from '../models/pages/sys/SysPrinterListPage';
 import sys$SysSubSystemListPage from '../models/pages/sys/SysSubSystemListPage';
 import sys$SysWebhookListPage from '../models/pages/sys/SysWebhookListPage';
+import tower$TowerPurchaseOrderDetailsPage from '../models/pages/tower/TowerPurchaseOrderDetailsPage';
+import tower$TowerPurchaseOrderListPage from '../models/pages/tower/TowerPurchaseOrderListPage';
+import tower$TowerSupplierListPage from '../models/pages/tower/TowerSupplierListPage';
 
 export default [
   AppNavItemListPage,
-  BaseEmployeeListPage,
-  BaseFormFieldListPage,
-  BaseLocationListPage,
-  BaseMaterialCategoryListPage,
-  BaseMaterialDetailsPage,
-  BaseMaterialListPage,
-  BasePartnerCategoryListPage,
-  BasePartnerListPage,
-  BaseUnitListPage,
   CbsContractDetailsPage,
   CbsContractListPage,
   CbsContractRelationKindListPage,
@@ -247,6 +242,16 @@ export default [
   account$AccountChangePasswordPage,
   account$AccountNotificationListPage,
   account$AccountProfilePage,
+  base$BaseEmployeeListPage,
+  base$BaseFormFieldListPage,
+  base$BaseLocationListPage,
+  base$BaseMaterialCategoryListPage,
+  base$BaseMaterialDetailsPage,
+  base$BaseMaterialListPage,
+  base$BasePartnerCategoryListPage,
+  base$BasePartnerListPage,
+  base$BasePurchaseOrderCategoryListPage,
+  base$BaseUnitListPage,
   bpm$BpmCcToMeApplicationListPage,
   bpm$BpmInstanceDetailsPage,
   bpm$BpmMyFinishedApprovalListPage,
@@ -321,4 +326,7 @@ export default [
   sys$SysPrinterListPage,
   sys$SysSubSystemListPage,
   sys$SysWebhookListPage,
+  tower$TowerPurchaseOrderDetailsPage,
+  tower$TowerPurchaseOrderListPage,
+  tower$TowerSupplierListPage,
 ] as TRapidPageLoader[];

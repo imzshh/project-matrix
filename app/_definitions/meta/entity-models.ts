@@ -2,28 +2,6 @@ import type { RapidEntity as TRapidEntity } from '@ruiapp/rapid-extension';
 import { autoConfigureRapidEntity } from '@ruiapp/rapid-extension';
 import AppClient from '../models/entities/AppClient';
 import AppNavItem from '../models/entities/AppNavItem';
-import BaseBuilding from '../models/entities/BaseBuilding';
-import BaseEmployee from '../models/entities/BaseEmployee';
-import BaseFormField from '../models/entities/BaseFormField';
-import BaseGate from '../models/entities/BaseGate';
-import BaseLocation from '../models/entities/BaseLocation';
-import BaseLot from '../models/entities/BaseLot';
-import BaseMaterial from '../models/entities/BaseMaterial';
-import BaseMaterialCategory from '../models/entities/BaseMaterialCategory';
-import BaseMaterialDocument from '../models/entities/BaseMaterialDocument';
-import BaseMaterialType from '../models/entities/BaseMaterialType';
-import BaseOffice from '../models/entities/BaseOffice';
-import BasePartner from '../models/entities/BasePartner';
-import BasePartnerCategory from '../models/entities/BasePartnerCategory';
-import BaseUnit from '../models/entities/BaseUnit';
-import BaseUnitCategory from '../models/entities/BaseUnitCategory';
-import CbsContract from '../models/entities/CbsContract';
-import CbsContractFile from '../models/entities/CbsContractFile';
-import CbsContractFundingBudget from '../models/entities/CbsContractFundingBudget';
-import CbsContractRelation from '../models/entities/CbsContractRelation';
-import CbsContractRelationKind from '../models/entities/CbsContractRelationKind';
-import CbsOrder from '../models/entities/CbsOrder';
-import CbsOrderItem from '../models/entities/CbsOrderItem';
 import EcmDocument from '../models/entities/EcmDocument';
 import EcmRevision from '../models/entities/EcmRevision';
 import EcmStorageObject from '../models/entities/EcmStorageObject';
@@ -134,12 +112,37 @@ import SysActionGroup from '../models/entities/SysActionGroup';
 import SysAuditLog from '../models/entities/SysAuditLog';
 import SysWebhook from '../models/entities/SysWebhook';
 import YidaConfig from '../models/entities/YidaConfig';
+import base$BaseBuilding from '../models/entities/base/BaseBuilding';
+import base$BaseCustomerCategory from '../models/entities/base/BaseCustomerCategory';
+import base$BaseEmployee from '../models/entities/base/BaseEmployee';
+import base$BaseFormField from '../models/entities/base/BaseFormField';
+import base$BaseGate from '../models/entities/base/BaseGate';
+import base$BaseLocation from '../models/entities/base/BaseLocation';
+import base$BaseLot from '../models/entities/base/BaseLot';
+import base$BaseMaterial from '../models/entities/base/BaseMaterial';
+import base$BaseMaterialCategory from '../models/entities/base/BaseMaterialCategory';
+import base$BaseMaterialDocument from '../models/entities/base/BaseMaterialDocument';
+import base$BaseMaterialType from '../models/entities/base/BaseMaterialType';
+import base$BaseOffice from '../models/entities/base/BaseOffice';
+import base$BasePartner from '../models/entities/base/BasePartner';
+import base$BasePartnerCategory from '../models/entities/base/BasePartnerCategory';
+import base$BaseSupplierCategory from '../models/entities/base/BaseSupplierCategory';
+import base$BaseUnit from '../models/entities/base/BaseUnit';
+import base$BaseUnitCategory from '../models/entities/base/BaseUnitCategory';
 import bpm$BpmInstance from '../models/entities/bpm/BpmInstance';
 import bpm$BpmJob from '../models/entities/bpm/BpmJob';
 import bpm$BpmManualTask from '../models/entities/bpm/BpmManualTask';
 import bpm$BpmProcess from '../models/entities/bpm/BpmProcess';
 import bpm$BpmProcessCategory from '../models/entities/bpm/BpmProcessCategory';
 import bpm$BpmProcessRevision from '../models/entities/bpm/BpmProcessRevision';
+import cbs$CbsContract from '../models/entities/cbs/CbsContract';
+import cbs$CbsContractFile from '../models/entities/cbs/CbsContractFile';
+import cbs$CbsContractFundingBudget from '../models/entities/cbs/CbsContractFundingBudget';
+import cbs$CbsContractRelation from '../models/entities/cbs/CbsContractRelation';
+import cbs$CbsContractRelationKind from '../models/entities/cbs/CbsContractRelationKind';
+import cbs$CbsOrder from '../models/entities/cbs/CbsOrder';
+import cbs$CbsOrderItem from '../models/entities/cbs/CbsOrderItem';
+import cbs$CbsPurchaseOrderCategory from '../models/entities/cbs/CbsPurchaseOrderCategory';
 import iot$DataSource from '../models/entities/iot/DataSource';
 import iot$IotGateway from '../models/entities/iot/IotGateway';
 import iot$IotProperty from '../models/entities/iot/IotProperty';
@@ -177,28 +180,6 @@ import utility$Notification from '../models/entities/utility/Notification';
 const entityDefinitions = [
   AppClient,
   AppNavItem,
-  BaseBuilding,
-  BaseEmployee,
-  BaseFormField,
-  BaseGate,
-  BaseLocation,
-  BaseLot,
-  BaseMaterial,
-  BaseMaterialCategory,
-  BaseMaterialDocument,
-  BaseMaterialType,
-  BaseOffice,
-  BasePartner,
-  BasePartnerCategory,
-  BaseUnit,
-  BaseUnitCategory,
-  CbsContract,
-  CbsContractFile,
-  CbsContractFundingBudget,
-  CbsContractRelation,
-  CbsContractRelationKind,
-  CbsOrder,
-  CbsOrderItem,
   EcmDocument,
   EcmRevision,
   EcmStorageObject,
@@ -309,12 +290,37 @@ const entityDefinitions = [
   SysAuditLog,
   SysWebhook,
   YidaConfig,
+  base$BaseBuilding,
+  base$BaseCustomerCategory,
+  base$BaseEmployee,
+  base$BaseFormField,
+  base$BaseGate,
+  base$BaseLocation,
+  base$BaseLot,
+  base$BaseMaterial,
+  base$BaseMaterialCategory,
+  base$BaseMaterialDocument,
+  base$BaseMaterialType,
+  base$BaseOffice,
+  base$BasePartner,
+  base$BasePartnerCategory,
+  base$BaseSupplierCategory,
+  base$BaseUnit,
+  base$BaseUnitCategory,
   bpm$BpmInstance,
   bpm$BpmJob,
   bpm$BpmManualTask,
   bpm$BpmProcess,
   bpm$BpmProcessCategory,
   bpm$BpmProcessRevision,
+  cbs$CbsContract,
+  cbs$CbsContractFile,
+  cbs$CbsContractFundingBudget,
+  cbs$CbsContractRelation,
+  cbs$CbsContractRelationKind,
+  cbs$CbsOrder,
+  cbs$CbsOrderItem,
+  cbs$CbsPurchaseOrderCategory,
   iot$DataSource,
   iot$IotGateway,
   iot$IotProperty,
@@ -352,28 +358,6 @@ const entityDefinitions = [
 const configuredEntities:TRapidEntity[] = [
   autoConfigureRapidEntity(AppClient, entityDefinitions),
   autoConfigureRapidEntity(AppNavItem, entityDefinitions),
-  autoConfigureRapidEntity(BaseBuilding, entityDefinitions),
-  autoConfigureRapidEntity(BaseEmployee, entityDefinitions),
-  autoConfigureRapidEntity(BaseFormField, entityDefinitions),
-  autoConfigureRapidEntity(BaseGate, entityDefinitions),
-  autoConfigureRapidEntity(BaseLocation, entityDefinitions),
-  autoConfigureRapidEntity(BaseLot, entityDefinitions),
-  autoConfigureRapidEntity(BaseMaterial, entityDefinitions),
-  autoConfigureRapidEntity(BaseMaterialCategory, entityDefinitions),
-  autoConfigureRapidEntity(BaseMaterialDocument, entityDefinitions),
-  autoConfigureRapidEntity(BaseMaterialType, entityDefinitions),
-  autoConfigureRapidEntity(BaseOffice, entityDefinitions),
-  autoConfigureRapidEntity(BasePartner, entityDefinitions),
-  autoConfigureRapidEntity(BasePartnerCategory, entityDefinitions),
-  autoConfigureRapidEntity(BaseUnit, entityDefinitions),
-  autoConfigureRapidEntity(BaseUnitCategory, entityDefinitions),
-  autoConfigureRapidEntity(CbsContract, entityDefinitions),
-  autoConfigureRapidEntity(CbsContractFile, entityDefinitions),
-  autoConfigureRapidEntity(CbsContractFundingBudget, entityDefinitions),
-  autoConfigureRapidEntity(CbsContractRelation, entityDefinitions),
-  autoConfigureRapidEntity(CbsContractRelationKind, entityDefinitions),
-  autoConfigureRapidEntity(CbsOrder, entityDefinitions),
-  autoConfigureRapidEntity(CbsOrderItem, entityDefinitions),
   autoConfigureRapidEntity(EcmDocument, entityDefinitions),
   autoConfigureRapidEntity(EcmRevision, entityDefinitions),
   autoConfigureRapidEntity(EcmStorageObject, entityDefinitions),
@@ -484,12 +468,37 @@ const configuredEntities:TRapidEntity[] = [
   autoConfigureRapidEntity(SysAuditLog, entityDefinitions),
   autoConfigureRapidEntity(SysWebhook, entityDefinitions),
   autoConfigureRapidEntity(YidaConfig, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseBuilding, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseCustomerCategory, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseEmployee, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseFormField, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseGate, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseLocation, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseLot, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseMaterial, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseMaterialCategory, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseMaterialDocument, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseMaterialType, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseOffice, entityDefinitions),
+  autoConfigureRapidEntity(base$BasePartner, entityDefinitions),
+  autoConfigureRapidEntity(base$BasePartnerCategory, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseSupplierCategory, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseUnit, entityDefinitions),
+  autoConfigureRapidEntity(base$BaseUnitCategory, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmInstance, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmJob, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmManualTask, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmProcess, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmProcessCategory, entityDefinitions),
   autoConfigureRapidEntity(bpm$BpmProcessRevision, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsContract, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsContractFile, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsContractFundingBudget, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsContractRelation, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsContractRelationKind, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsOrder, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsOrderItem, entityDefinitions),
+  autoConfigureRapidEntity(cbs$CbsPurchaseOrderCategory, entityDefinitions),
   autoConfigureRapidEntity(iot$DataSource, entityDefinitions),
   autoConfigureRapidEntity(iot$IotGateway, entityDefinitions),
   autoConfigureRapidEntity(iot$IotProperty, entityDefinitions),

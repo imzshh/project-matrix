@@ -658,6 +658,14 @@ export type WarehouseStrategy =
   ;
 
 /**
+ * 合作伙伴类型
+ */
+export type BasePartnerType =
+  | 'supplier'
+  | 'customer'
+  ;
+
+/**
  * 测量属性数据类型
  */
 export type IotMeasurementDataType =

@@ -199,1516 +199,6 @@ export interface AppNavItem {
 export type SaveAppNavItemInput = Omit<AppNavItem, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
 
 /**
- * 建筑物
- */
-export interface BaseBuilding {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 位置
-   */
-  location?: Partial<BaseLocation>;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 建筑物
- */
-export type SaveBaseBuildingInput = Omit<BaseBuilding, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 员工
- */
-export interface BaseEmployee {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 工号
-   */
-  code?: string;
-  /**
-   * 姓名
-   */
-  name?: string;
-  /**
-   * 部门
-   */
-  department?: Partial<OcDepartment>;
-  /**
-   * 状态
-   */
-  state?: EmployeeState;
-  /**
-   * 外部编号
-   */
-  externalCode?: string;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 员工
- */
-export type SaveBaseEmployeeInput = Omit<BaseEmployee, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 表单字段
- */
-export interface BaseFormField {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编码
-   */
-  code: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 来源
-   */
-  source?: string;
-  /**
-   * 外部id
-   */
-  externalId?: string;
-  /**
-   * 外部数据
-   */
-  externalData?: Record<string, any>;
-  /**
-   * 字段类型
-   */
-  fieldType: FormFieldType;
-  /**
-   * 状态
-   */
-  state?: EnabledDisabledState;
-  /**
-   * 备注
-   */
-  description?: string;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 表单字段
- */
-export type SaveBaseFormFieldInput = Omit<BaseFormField, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 大门
- */
-export interface BaseGate {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 位置
-   */
-  location?: Partial<BaseLocation>;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 大门
- */
-export type SaveBaseGateInput = Omit<BaseGate, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 位置
- */
-export interface BaseLocation {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 上级位置
-   */
-  parent?: Partial<BaseLocation>;
-  /**
-   * 类型
-   */
-  type: BaseLocationType;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 描述
-   */
-  description?: string;
-  /**
-   * 排序
-   */
-  orderNum: number;
-  /**
-   * 外部编码
-   */
-  externalCode?: string;
-  /**
-   * 外部库位组编码
-   */
-  externalGroupCode?: string;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 位置
- */
-export type SaveBaseLocationInput = Omit<BaseLocation, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 批次
- */
-export interface BaseLot {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 物料
-   */
-  material: Partial<BaseMaterial>;
-  /**
-   * 批次号
-   */
-  lotNum?: string;
-  /**
-   * 来源
-   */
-  sourceType?: MaterialSourceType;
-  /**
-   * 生产时间
-   */
-  manufactureDate?: string;
-  /**
-   * 失效时间
-   */
-  expireTime?: string;
-  /**
-   * 有效期至
-   */
-  validityDate?: string;
-  /**
-   * 合格证状态
-   */
-  qualificationState?: QualificationState;
-  /**
-   * 是否让步接收
-   */
-  isAOD?: boolean;
-  /**
-   * 状态
-   */
-  state?: BaseLotState;
-  /**
-   * 处理方式
-   */
-  treatment?: MomInspectionSheetTreatment;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 钉钉审批流程实例ID
-   */
-  dingtalkProcessInstanceId?: string;
-  /**
-   * 钉钉审批流程发起人
-   */
-  dingtalkApprovalOriginator?: string;
-  /**
-   * 通风开始时间
-   */
-  ventilationStartTime?: string;
-  /**
-   * 通风结束时间
-   */
-  ventilationFinishTime?: string;
-  /**
-   * 通风时长
-   */
-  ventilationDuration?: number;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 批次
- */
-export type SaveBaseLotInput = Omit<BaseLot, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 物料
- */
-export interface BaseMaterial {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 物料号
-   */
-  code: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 品牌
-   */
-  brand?: string;
-  /**
-   * 规格
-   */
-  specification?: string;
-  /**
-   * 描述
-   */
-  description?: string;
-  /**
-   * 分类
-   */
-  category: Partial<BaseMaterialCategory>;
-  /**
-   * 默认单位
-   */
-  defaultUnit?: Partial<BaseUnit>;
-  /**
-   * 类型
-   */
-  types?: any;
-  /**
-   * 可生产
-   */
-  canProduce?: boolean;
-  /**
-   * 可采购
-   */
-  canPurchase?: boolean;
-  /**
-   * 可外协
-   */
-  canOutsource?: boolean;
-  /**
-   * 可销售
-   */
-  canSale?: boolean;
-  /**
-   * 状态
-   */
-  state: EnabledDisabledState;
-  /**
-   * 是否免检
-   */
-  isInspectionFree: boolean;
-  /**
-   * 质保期
-   */
-  qualityGuaranteePeriod?: string;
-  /**
-   * 外部编号
-   */
-  externalCode?: string;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 安全库存数量
-   */
-  safetyStockQuantity?: number;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 物料
- */
-export type SaveBaseMaterialInput = Omit<BaseMaterial, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 物料分类
- */
-export interface BaseMaterialCategory {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编号
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 默认单位
-   */
-  defaultUnit?: Partial<BaseUnit>;
-  /**
-   * 排序号
-   */
-  orderNum?: number;
-  /**
-   * 上级分类
-   */
-  parent?: Partial<BaseMaterialCategory>;
-  /**
-   * 物料
-   */
-  materials?: any;
-  /**
-   * 物料
-   */
-  brekdown?: any;
-  /**
-   * 外部编号
-   */
-  externalCode?: string;
-  /**
-   * 打印模版
-   */
-  printTemplate?: Partial<MomPrintTemplate>;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 物料分类
- */
-export type SaveBaseMaterialCategoryInput = Omit<BaseMaterialCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 物料文档
- */
-export interface BaseMaterialDocument {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 物料
-   */
-  material: Partial<BaseMaterial>;
-  /**
-   * 文档
-   */
-  document: Partial<EcmDocument>;
-  /**
-   * 状态
-   */
-  state: EnabledDisabledState;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 物料文档
- */
-export type SaveBaseMaterialDocumentInput = Omit<BaseMaterialDocument, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 物料类型
- */
-export interface BaseMaterialType {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 物料
-   */
-  materials?: any;
-  /**
-   * 编号
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 配置
-   */
-  config?: Record<string, any>;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 物料类型
- */
-export type SaveBaseMaterialTypeInput = Omit<BaseMaterialType, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 办公室
- */
-export interface BaseOffice {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 建筑
-   */
-  building?: Partial<BaseBuilding>;
-  /**
-   * 位置
-   */
-  location?: Partial<BaseLocation>;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name?: string;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 办公室
- */
-export type SaveBaseOfficeInput = Omit<BaseOffice, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 合作伙伴
- */
-export interface BasePartner {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 分类
-   */
-  categories?: any;
-  /**
-   * 外部编号
-   */
-  externalCode?: string;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 合作伙伴
- */
-export type SaveBasePartnerInput = Omit<BasePartner, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 合作伙伴分类
- */
-export interface BasePartnerCategory {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 合作伙伴分类
- */
-export type SaveBasePartnerCategoryInput = Omit<BasePartnerCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 单位
- */
-export interface BaseUnit {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编码
-   */
-  code: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 英文名称
-   */
-  nameEn?: string;
-  /**
-   * 打印符号
-   */
-  printSymbol?: string;
-  /**
-   * 类型
-   */
-  type: UnitType;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 单位分组
-   */
-  category: Partial<BaseUnitCategory>;
-  /**
-   * 外部编号
-   */
-  externalCode?: string;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 单位
- */
-export type SaveBaseUnitInput = Omit<BaseUnit, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 单位分组
- */
-export interface BaseUnitCategory {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 单位
-   */
-  units?: any;
-  /**
-   * 工厂
-   */
-  factory?: Partial<MomFactory>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 单位分组
- */
-export type SaveBaseUnitCategoryInput = Omit<BaseUnitCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 合同
- */
-export interface CbsContract {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 类型
-   */
-  kind?: CbsContractKind;
-  /**
-   * 编号
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 描述
-   */
-  description?: string;
-  /**
-   * 所属项目
-   */
-  project?: Partial<PmProject>;
-  /**
-   * 销售
-   */
-  salesman?: Partial<OcUser>;
-  /**
-   * 相关订单
-   */
-  orders?: any;
-  /**
-   * 合同金额
-   */
-  totalAmount: number;
-  /**
-   * 签订日期
-   */
-  signingDate?: string;
-  /**
-   * 状态
-   */
-  state: CbsContractState;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 合同
- */
-export type SaveCbsContractInput = Omit<CbsContract, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 合同文件
- */
-export interface CbsContractFile {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 文件编号
-   */
-  code?: string;
-  /**
-   * 文件名
-   */
-  name: string;
-  /**
-   * 文件大小
-   */
-  size: string;
-  /**
-   * 备注
-   */
-  description?: string;
-  /**
-   * 合同
-   */
-  contract?: Partial<CbsContract>;
-  /**
-   * 存储对象
-   */
-  storageObject?: Partial<EcmStorageObject>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 合同文件
- */
-export type SaveCbsContractFileInput = Omit<CbsContractFile, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 资金预算
- */
-export interface CbsContractFundingBudget {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编号
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 描述
-   */
-  description?: string;
-  /**
-   * 所属项目
-   */
-  project?: Partial<PmProject>;
-  /**
-   * 销售
-   */
-  salesman?: Partial<OcUser>;
-  /**
-   * 相关订单
-   */
-  orders?: any;
-  /**
-   * 合同金额
-   */
-  totalAmount: number;
-  /**
-   * 状态
-   */
-  state: CbsContractState;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 资金预算
- */
-export type SaveCbsContractFundingBudgetInput = Omit<CbsContractFundingBudget, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 合同关联
- */
-export interface CbsContractRelation {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 主体合同
-   */
-  main?: Partial<CbsContract>;
-  /**
-   * 被关联合同
-   */
-  target?: Partial<CbsContract>;
-  /**
-   * 关系
-   */
-  kind?: Partial<CbsContractRelationKind>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 合同关联
- */
-export type SaveCbsContractRelationInput = Omit<CbsContractRelation, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 合同关联关系
- */
-export interface CbsContractRelationKind {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 编码
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 反向关系
-   */
-  opposite?: Partial<CbsContractRelationKind>;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 合同关联关系
- */
-export type SaveCbsContractRelationKindInput = Omit<CbsContractRelationKind, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 订单
- */
-export interface CbsOrder {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 类型
-   */
-  kind: CbsOrderKind;
-  /**
-   * 编号
-   */
-  code?: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 描述
-   */
-  description?: string;
-  /**
-   * 相关项目
-   */
-  projects?: any;
-  /**
-   * 相关合同
-   */
-  contracts?: any;
-  /**
-   * 物料需求计划
-   */
-  mrp?: Partial<MomManufacturingResourcePlan>;
-  /**
-   * 订单项
-   */
-  items?: any;
-  /**
-   * 订单金额
-   */
-  totalAmount: number;
-  /**
-   * 税费
-   */
-  taxFee: number;
-  /**
-   * 转账记录
-   */
-  transactions?: any;
-  /**
-   * 状态
-   */
-  state: CbsOrderState;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 订单
- */
-export type SaveCbsOrderInput = Omit<CbsOrder, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
- * 订单项
- */
-export interface CbsOrderItem {
-  /**
-   * id
-   */
-  id: number;
-  /**
-   * 订单
-   */
-  order: Partial<CbsOrder>;
-  /**
-   * 物料需求计划
-   */
-  mrp?: Partial<MomManufacturingResourcePlan>;
-  /**
-   * 排序号
-   */
-  orderNum: number;
-  /**
-   * 产品/服务
-   */
-  subject?: Partial<BaseMaterial>;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 标签
-   */
-  tags?: string;
-  /**
-   * 描述
-   */
-  description?: string;
-  /**
-   * 单价
-   */
-  price: number;
-  /**
-   * 数量
-   */
-  quantity: number;
-  /**
-   * 单位
-   */
-  unit?: Partial<BaseUnit>;
-  /**
-   * 税率
-   */
-  taxRate: number;
-  /**
-   * 创建时间
-   */
-  createdAt?: string;
-  /**
-   * 创建人
-   */
-  createdBy?: Partial<OcUser>;
-  /**
-   * 更新时间
-   */
-  updatedAt?: string;
-  /**
-   * 更新人
-   */
-  updatedBy?: Partial<OcUser>;
-  /**
-   * 删除时间
-   */
-  deletedAt?: string;
-  /**
-   * 删除人
-   */
-  deletedBy?: Partial<OcUser>;
-}
-
-/**
- * 订单项
- */
-export type SaveCbsOrderItemInput = Omit<CbsOrderItem, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
-
-/**
  * 文档
  */
 export interface EcmDocument {
@@ -9875,6 +8365,1149 @@ export interface YidaConfig {
 export type SaveYidaConfigInput = Omit<YidaConfig, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
 
 /**
+ * 建筑物
+ */
+export interface BaseBuilding {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 位置
+   */
+  location?: Partial<BaseLocation>;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 建筑物
+ */
+export type SaveBaseBuildingInput = Omit<BaseBuilding, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 客户分类
+ */
+export interface BaseCustomerCategory {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 上级分类
+   */
+  parent?: Partial<BaseCustomerCategory>;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 客户分类
+ */
+export type SaveBaseCustomerCategoryInput = Omit<BaseCustomerCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 员工
+ */
+export interface BaseEmployee {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 工号
+   */
+  code?: string;
+  /**
+   * 姓名
+   */
+  name?: string;
+  /**
+   * 部门
+   */
+  department?: Partial<OcDepartment>;
+  /**
+   * 状态
+   */
+  state?: EmployeeState;
+  /**
+   * 外部编号
+   */
+  externalCode?: string;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 员工
+ */
+export type SaveBaseEmployeeInput = Omit<BaseEmployee, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 表单字段
+ */
+export interface BaseFormField {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 来源
+   */
+  source?: string;
+  /**
+   * 外部id
+   */
+  externalId?: string;
+  /**
+   * 外部数据
+   */
+  externalData?: Record<string, any>;
+  /**
+   * 字段类型
+   */
+  fieldType: FormFieldType;
+  /**
+   * 状态
+   */
+  state?: EnabledDisabledState;
+  /**
+   * 备注
+   */
+  description?: string;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 表单字段
+ */
+export type SaveBaseFormFieldInput = Omit<BaseFormField, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 大门
+ */
+export interface BaseGate {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 位置
+   */
+  location?: Partial<BaseLocation>;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 大门
+ */
+export type SaveBaseGateInput = Omit<BaseGate, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 位置
+ */
+export interface BaseLocation {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 上级位置
+   */
+  parent?: Partial<BaseLocation>;
+  /**
+   * 类型
+   */
+  type: BaseLocationType;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 排序
+   */
+  orderNum: number;
+  /**
+   * 外部编码
+   */
+  externalCode?: string;
+  /**
+   * 外部库位组编码
+   */
+  externalGroupCode?: string;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 位置
+ */
+export type SaveBaseLocationInput = Omit<BaseLocation, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 批次
+ */
+export interface BaseLot {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 物料
+   */
+  material: Partial<BaseMaterial>;
+  /**
+   * 批次号
+   */
+  lotNum?: string;
+  /**
+   * 来源
+   */
+  sourceType?: MaterialSourceType;
+  /**
+   * 生产时间
+   */
+  manufactureDate?: string;
+  /**
+   * 失效时间
+   */
+  expireTime?: string;
+  /**
+   * 有效期至
+   */
+  validityDate?: string;
+  /**
+   * 合格证状态
+   */
+  qualificationState?: QualificationState;
+  /**
+   * 是否让步接收
+   */
+  isAOD?: boolean;
+  /**
+   * 状态
+   */
+  state?: BaseLotState;
+  /**
+   * 处理方式
+   */
+  treatment?: MomInspectionSheetTreatment;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 钉钉审批流程实例ID
+   */
+  dingtalkProcessInstanceId?: string;
+  /**
+   * 钉钉审批流程发起人
+   */
+  dingtalkApprovalOriginator?: string;
+  /**
+   * 通风开始时间
+   */
+  ventilationStartTime?: string;
+  /**
+   * 通风结束时间
+   */
+  ventilationFinishTime?: string;
+  /**
+   * 通风时长
+   */
+  ventilationDuration?: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 批次
+ */
+export type SaveBaseLotInput = Omit<BaseLot, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 物料
+ */
+export interface BaseMaterial {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 物料号
+   */
+  code: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 品牌
+   */
+  brand?: string;
+  /**
+   * 规格
+   */
+  specification?: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 分类
+   */
+  category: Partial<BaseMaterialCategory>;
+  /**
+   * 默认单位
+   */
+  defaultUnit?: Partial<BaseUnit>;
+  /**
+   * 类型
+   */
+  types?: any;
+  /**
+   * 可生产
+   */
+  canProduce?: boolean;
+  /**
+   * 可采购
+   */
+  canPurchase?: boolean;
+  /**
+   * 可外协
+   */
+  canOutsource?: boolean;
+  /**
+   * 可销售
+   */
+  canSale?: boolean;
+  /**
+   * 状态
+   */
+  state: EnabledDisabledState;
+  /**
+   * 是否免检
+   */
+  isInspectionFree: boolean;
+  /**
+   * 质保期
+   */
+  qualityGuaranteePeriod?: string;
+  /**
+   * 外部编号
+   */
+  externalCode?: string;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 安全库存数量
+   */
+  safetyStockQuantity?: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 物料
+ */
+export type SaveBaseMaterialInput = Omit<BaseMaterial, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 物料分类
+ */
+export interface BaseMaterialCategory {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编号
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 默认单位
+   */
+  defaultUnit?: Partial<BaseUnit>;
+  /**
+   * 排序号
+   */
+  orderNum?: number;
+  /**
+   * 上级分类
+   */
+  parent?: Partial<BaseMaterialCategory>;
+  /**
+   * 物料
+   */
+  materials?: any;
+  /**
+   * 物料
+   */
+  brekdown?: any;
+  /**
+   * 外部编号
+   */
+  externalCode?: string;
+  /**
+   * 打印模版
+   */
+  printTemplate?: Partial<MomPrintTemplate>;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 物料分类
+ */
+export type SaveBaseMaterialCategoryInput = Omit<BaseMaterialCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 物料文档
+ */
+export interface BaseMaterialDocument {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 物料
+   */
+  material: Partial<BaseMaterial>;
+  /**
+   * 文档
+   */
+  document: Partial<EcmDocument>;
+  /**
+   * 状态
+   */
+  state: EnabledDisabledState;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 物料文档
+ */
+export type SaveBaseMaterialDocumentInput = Omit<BaseMaterialDocument, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 物料类型
+ */
+export interface BaseMaterialType {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 物料
+   */
+  materials?: any;
+  /**
+   * 编号
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 配置
+   */
+  config?: Record<string, any>;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 物料类型
+ */
+export type SaveBaseMaterialTypeInput = Omit<BaseMaterialType, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 办公室
+ */
+export interface BaseOffice {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 建筑
+   */
+  building?: Partial<BaseBuilding>;
+  /**
+   * 位置
+   */
+  location?: Partial<BaseLocation>;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name?: string;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 办公室
+ */
+export type SaveBaseOfficeInput = Omit<BaseOffice, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 合作伙伴
+ */
+export interface BasePartner {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 类型
+   */
+  types?: any;
+  /**
+   * 分类
+   */
+  categories?: any;
+  /**
+   * 外部编号
+   */
+  externalCode?: string;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 供应商分类
+   */
+  supplierCategories?: any;
+  /**
+   * 客户分类
+   */
+  customerCategories?: any;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 合作伙伴
+ */
+export type SaveBasePartnerInput = Omit<BasePartner, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 合作伙伴分类
+ */
+export interface BasePartnerCategory {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 合作伙伴分类
+ */
+export type SaveBasePartnerCategoryInput = Omit<BasePartnerCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 供应商分类
+ */
+export interface BaseSupplierCategory {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 上级分类
+   */
+  parent?: Partial<BaseSupplierCategory>;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 供应商分类
+ */
+export type SaveBaseSupplierCategoryInput = Omit<BaseSupplierCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 单位
+ */
+export interface BaseUnit {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 英文名称
+   */
+  nameEn?: string;
+  /**
+   * 打印符号
+   */
+  printSymbol?: string;
+  /**
+   * 类型
+   */
+  type: UnitType;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 单位分组
+   */
+  category: Partial<BaseUnitCategory>;
+  /**
+   * 外部编号
+   */
+  externalCode?: string;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 单位
+ */
+export type SaveBaseUnitInput = Omit<BaseUnit, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 单位分组
+ */
+export interface BaseUnitCategory {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 单位
+   */
+  units?: any;
+  /**
+   * 工厂
+   */
+  factory?: Partial<MomFactory>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 单位分组
+ */
+export type SaveBaseUnitCategoryInput = Omit<BaseUnitCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
  * 流程实例
  */
 export interface BpmInstance {
@@ -10307,6 +9940,566 @@ export interface BpmProcessRevision {
  * 业务流程版本
  */
 export type SaveBpmProcessRevisionInput = Omit<BpmProcessRevision, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 合同
+ */
+export interface CbsContract {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 类型
+   */
+  kind?: CbsContractKind;
+  /**
+   * 编号
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 所属项目
+   */
+  project?: Partial<PmProject>;
+  /**
+   * 销售
+   */
+  salesman?: Partial<OcUser>;
+  /**
+   * 相关订单
+   */
+  orders?: any;
+  /**
+   * 合同金额
+   */
+  totalAmount: number;
+  /**
+   * 签订日期
+   */
+  signingDate?: string;
+  /**
+   * 状态
+   */
+  state: CbsContractState;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 合同
+ */
+export type SaveCbsContractInput = Omit<CbsContract, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 合同文件
+ */
+export interface CbsContractFile {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 文件编号
+   */
+  code?: string;
+  /**
+   * 文件名
+   */
+  name: string;
+  /**
+   * 文件大小
+   */
+  size: string;
+  /**
+   * 备注
+   */
+  description?: string;
+  /**
+   * 合同
+   */
+  contract?: Partial<CbsContract>;
+  /**
+   * 存储对象
+   */
+  storageObject?: Partial<EcmStorageObject>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 合同文件
+ */
+export type SaveCbsContractFileInput = Omit<CbsContractFile, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 资金预算
+ */
+export interface CbsContractFundingBudget {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编号
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 所属项目
+   */
+  project?: Partial<PmProject>;
+  /**
+   * 销售
+   */
+  salesman?: Partial<OcUser>;
+  /**
+   * 相关订单
+   */
+  orders?: any;
+  /**
+   * 合同金额
+   */
+  totalAmount: number;
+  /**
+   * 状态
+   */
+  state: CbsContractState;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 资金预算
+ */
+export type SaveCbsContractFundingBudgetInput = Omit<CbsContractFundingBudget, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 合同关联
+ */
+export interface CbsContractRelation {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 主体合同
+   */
+  main?: Partial<CbsContract>;
+  /**
+   * 被关联合同
+   */
+  target?: Partial<CbsContract>;
+  /**
+   * 关系
+   */
+  kind?: Partial<CbsContractRelationKind>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 合同关联
+ */
+export type SaveCbsContractRelationInput = Omit<CbsContractRelation, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 合同关联关系
+ */
+export interface CbsContractRelationKind {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 反向关系
+   */
+  opposite?: Partial<CbsContractRelationKind>;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 合同关联关系
+ */
+export type SaveCbsContractRelationKindInput = Omit<CbsContractRelationKind, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 订单
+ */
+export interface CbsOrder {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 类型
+   */
+  kind: CbsOrderKind;
+  /**
+   * 编号
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 要求交货日期
+   */
+  requiredDeliveryDate?: string;
+  /**
+   * 合作伙伴
+   */
+  partner?: Partial<BasePartner>;
+  /**
+   * 相关项目
+   */
+  projects?: any;
+  /**
+   * 相关合同
+   */
+  contracts?: any;
+  /**
+   * 物料需求计划
+   */
+  mrp?: Partial<MomManufacturingResourcePlan>;
+  /**
+   * 订单项
+   */
+  items?: any;
+  /**
+   * 订单金额
+   */
+  totalAmount: number;
+  /**
+   * 税费
+   */
+  taxFee: number;
+  /**
+   * 转账记录
+   */
+  transactions?: any;
+  /**
+   * 状态
+   */
+  state: CbsOrderState;
+  /**
+   * 采购订单分类
+   */
+  purchaseOrderCategories?: any;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 订单
+ */
+export type SaveCbsOrderInput = Omit<CbsOrder, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 订单项
+ */
+export interface CbsOrderItem {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 订单
+   */
+  order: Partial<CbsOrder>;
+  /**
+   * 物料需求计划
+   */
+  mrp?: Partial<MomManufacturingResourcePlan>;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 产品/服务
+   */
+  subject?: Partial<BaseMaterial>;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 标签
+   */
+  tags?: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 单价
+   */
+  price: number;
+  /**
+   * 数量
+   */
+  quantity: number;
+  /**
+   * 单位
+   */
+  unit?: Partial<BaseUnit>;
+  /**
+   * 税率
+   */
+  taxRate: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 订单项
+ */
+export type SaveCbsOrderItemInput = Omit<CbsOrderItem, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 采购订单分类
+ */
+export interface CbsPurchaseOrderCategory {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 编码
+   */
+  code?: string;
+  /**
+   * 名称
+   */
+  name: string;
+  /**
+   * 描述
+   */
+  description?: string;
+  /**
+   * 上级分类
+   */
+  parent?: Partial<CbsPurchaseOrderCategory>;
+  /**
+   * 排序号
+   */
+  orderNum: number;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 采购订单分类
+ */
+export type SaveCbsPurchaseOrderCategoryInput = Omit<CbsPurchaseOrderCategory, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
 
 /**
  * IoT数据源
