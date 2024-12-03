@@ -81,6 +81,19 @@ const entity: RapidEntity<TEntitySingularCodes, TDictionaryCodes> = {
       type: "text",
     },
     {
+      code: "kind",
+      name: "用户类型",
+      type: "option",
+      dataDictionary: "UserKind",
+    },
+    {
+      code: "partner",
+      name: "所属合作伙伴",
+      type: "relation",
+      targetSingularCode: "base_partner",
+      targetIdColumnName: "partner_id",
+    },
+    {
       code: "factory",
       name: "工厂",
       type: "relation",

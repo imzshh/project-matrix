@@ -5,6 +5,10 @@ const formConfig: Partial<RapidEntityFormConfig> = {
   items: [
     {
       type: "auto",
+      code: "kind",
+    },
+    {
+      type: "auto",
       code: "name",
     },
     {
@@ -36,9 +40,16 @@ const formConfig: Partial<RapidEntityFormConfig> = {
     },
     {
       type: "auto",
+      code: "partner",
+    },
+    {
+      type: "auto",
       code: "state",
     },
   ],
+  defaultFormFields: {
+    kind: "internal",
+  },
 };
 
 const page: RapidPage = {
@@ -74,6 +85,12 @@ const page: RapidPage = {
       columns: [
         {
           type: "auto",
+          code: "kind",
+          width: "100px",
+          fixed: "left",
+        },
+        {
+          type: "auto",
           code: "name",
           fixed: "left",
         },
@@ -87,11 +104,16 @@ const page: RapidPage = {
           code: "email",
           width: "200px",
         },
+        // {
+        //   type: "auto",
+        //   code: "department",
+        //   fieldName: "department.name",
+        //   width: "150px",
+        // },
         {
           type: "auto",
-          code: "department",
-          fieldName: "department.name",
-          width: "150px",
+          code: "partner",
+          width: "200px",
         },
         {
           type: "auto",
@@ -121,7 +143,7 @@ const page: RapidPage = {
         {
           type: "auto",
           code: "createdAt",
-          width: "150px",
+          width: "160px",
         },
       ],
       actionsColumnWidth: "200px",

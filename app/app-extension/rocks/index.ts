@@ -45,6 +45,9 @@ import RawMaterialSelector from "./raw-material-selector/RawMaterialSelector";
 import CreateBatchNumberAction from "./create-batch-number-action/CreateBatchNumberAction";
 import CreateBatchTrigger from "./create-batch-trigger/CreateBatchTrigger";
 
+// tower
+import TowerPurchaseOrderProgress from "./tower-purchase-order-progress/TowerPurchaseOrderProgress";
+
 // import NewBatchNumber from "./new-batch-number/newBatchNumber";
 
 export default [
@@ -94,4 +97,7 @@ export default [
   // NewBatchNumber,
   CreateBatchNumberAction,
   CreateBatchTrigger,
+
+  // tower
+  TowerPurchaseOrderProgress,
 ];

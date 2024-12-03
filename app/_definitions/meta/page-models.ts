@@ -163,6 +163,10 @@ import sys$SysWebhookListPage from '../models/pages/sys/SysWebhookListPage';
 import tower$TowerPurchaseOrderDetailsPage from '../models/pages/tower/TowerPurchaseOrderDetailsPage';
 import tower$TowerPurchaseOrderListPage from '../models/pages/tower/TowerPurchaseOrderListPage';
 import tower$TowerSupplierListPage from '../models/pages/tower/TowerSupplierListPage';
+import tower$supplier$SupplierCustomerOrderDetailsPage from '../models/pages/tower/supplier/SupplierCustomerOrderDetailsPage';
+import tower$supplier$SupplierCustomerOrderListPage from '../models/pages/tower/supplier/SupplierCustomerOrderListPage';
+import tower$supplier$SupplierDashboardPage from '../models/pages/tower/supplier/SupplierDashboardPage';
+import tower$supplier$SupplierOrganizationDetailsPage from '../models/pages/tower/supplier/SupplierOrganizationDetailsPage';
 
 export default [
   AppNavItemListPage,
@@ -329,4 +333,8 @@ export default [
   tower$TowerPurchaseOrderDetailsPage,
   tower$TowerPurchaseOrderListPage,
   tower$TowerSupplierListPage,
+  tower$supplier$SupplierCustomerOrderDetailsPage,
+  tower$supplier$SupplierCustomerOrderListPage,
+  tower$supplier$SupplierDashboardPage,
+  tower$supplier$SupplierOrganizationDetailsPage,
 ] as TRapidPageLoader[];

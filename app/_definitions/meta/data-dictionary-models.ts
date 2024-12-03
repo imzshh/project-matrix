@@ -64,6 +64,7 @@ import SysAuditLogMethod from '../models/data-dictionaries/SysAuditLogMethod';
 import SysAuditLogTarget from '../models/data-dictionaries/SysAuditLogTarget';
 import UndeletedDeletedState from '../models/data-dictionaries/UndeletedDeletedState';
 import UnitType from '../models/data-dictionaries/UnitType';
+import UserKind from '../models/data-dictionaries/UserKind';
 import UserSecretLevel from '../models/data-dictionaries/UserSecretLevel';
 import WarehouseStrategy from '../models/data-dictionaries/WarehouseStrategy';
 import base$BasePartnerType from '../models/data-dictionaries/base/BasePartnerType';
@@ -140,6 +141,7 @@ export default [
   SysAuditLogTarget,
   UndeletedDeletedState,
   UnitType,
+  UserKind,
   UserSecretLevel,
   WarehouseStrategy,
   base$BasePartnerType,

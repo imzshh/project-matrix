@@ -265,13 +265,13 @@ const page: RapidPage = {
           children: [],
         },
         {
-          key: "deliveryReports",
-          label: "发货记录",
+          key: "qualityReports",
+          label: "质检报告",
           children: [],
         },
         {
-          key: "qualityReports",
-          label: "质检报告",
+          key: "deliveryReports",
+          label: "发货记录",
           children: [],
         },
         {

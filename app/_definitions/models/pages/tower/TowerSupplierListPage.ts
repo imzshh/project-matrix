@@ -1,8 +1,12 @@
 import { cloneDeep } from "lodash";
-import type { RapidPage, RapidEntityFormConfig } from "@ruiapp/rapid-extension";
+import type { RapidPage, RapidEntityFormConfig, SonicEntityListRockConfig } from "@ruiapp/rapid-extension";
 
 const formConfig: Partial<RapidEntityFormConfig> = {
   items: [
+    {
+      type: "auto",
+      code: "types",
+    },
     {
       type: "auto",
       code: "code",
@@ -45,6 +49,13 @@ const page: RapidPage = {
           actionEventName: "onSearch",
           filterMode: "contains",
           filterFields: ["code", "name"],
+        },
+      ],
+      fixedFilters: [
+        {
+          operator: "arrayContains",
+          field: "types",
+          value: ["supplier"],
         },
       ],
       orderBy: [
@@ -99,7 +110,7 @@ const page: RapidPage = {
       ],
       newForm: cloneDeep(formConfig),
       editForm: cloneDeep(formConfig),
-    },
+    } satisfies SonicEntityListRockConfig,
   ],
 };
 

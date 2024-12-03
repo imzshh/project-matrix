@@ -64,6 +64,7 @@ const dictionaryCodes = [
   'SysAuditLogTarget',
   'UndeletedDeletedState',
   'UnitType',
+  'UserKind',
   'UserSecretLevel',
   'WarehouseStrategy',
   'BasePartnerType',

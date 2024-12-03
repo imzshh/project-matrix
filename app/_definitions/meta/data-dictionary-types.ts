@@ -639,6 +639,14 @@ export type UnitType =
   ;
 
 /**
+ * 用户类型
+ */
+export type UserKind =
+  | 'internal'
+  | 'partner'
+  ;
+
+/**
  * 用户密级
  */
 export type UserSecretLevel =

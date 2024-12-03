@@ -66,6 +66,7 @@ import type {
   SysAuditLogTarget,
   UndeletedDeletedState,
   UnitType,
+  UserKind,
   WarehouseStrategy,
 } from "./data-dictionary-types";
 /**
@@ -7491,6 +7492,14 @@ export interface OcUser {
    */
   dingtalkUserId?: string;
   /**
+   * 用户类型
+   */
+  kind?: UserKind;
+  /**
+   * 所属合作伙伴
+   */
+  partner?: Partial<BasePartner>;
+  /**
    * 工厂
    */
   factory?: Partial<MomFactory>;
@@ -12616,6 +12625,124 @@ export interface SystemSettingItemSetting {
  * 系统设置项设置
  */
 export type SaveSystemSettingItemSettingInput = Omit<SystemSettingItemSetting, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 发货记录明细
+ */
+export interface TowerOrderDeliveryReportItem {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 订单
+   */
+  order: Partial<CbsOrder>;
+  /**
+   * 订单项
+   */
+  orderItem: Partial<CbsOrderItem>;
+  /**
+   * 数量
+   */
+  quantity: number;
+  /**
+   * 单位
+   */
+  unit?: Partial<BaseUnit>;
+  /**
+   * 汇报时间
+   */
+  reportTime: string;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 发货记录明细
+ */
+export type SaveTowerOrderDeliveryReportItemInput = Omit<TowerOrderDeliveryReportItem, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
+
+/**
+ * 生产进度汇报
+ */
+export interface TowerOrderProductionReportItem {
+  /**
+   * id
+   */
+  id: number;
+  /**
+   * 订单
+   */
+  order: Partial<CbsOrder>;
+  /**
+   * 订单项
+   */
+  orderItem: Partial<CbsOrderItem>;
+  /**
+   * 数量
+   */
+  quantity: number;
+  /**
+   * 单位
+   */
+  unit?: Partial<BaseUnit>;
+  /**
+   * 汇报时间
+   */
+  reportTime: string;
+  /**
+   * 创建时间
+   */
+  createdAt?: string;
+  /**
+   * 创建人
+   */
+  createdBy?: Partial<OcUser>;
+  /**
+   * 更新时间
+   */
+  updatedAt?: string;
+  /**
+   * 更新人
+   */
+  updatedBy?: Partial<OcUser>;
+  /**
+   * 删除时间
+   */
+  deletedAt?: string;
+  /**
+   * 删除人
+   */
+  deletedBy?: Partial<OcUser>;
+}
+
+/**
+ * 生产进度汇报
+ */
+export type SaveTowerOrderProductionReportItemInput = Omit<TowerOrderProductionReportItem, 'id' | 'createdAt' | 'createdBy' | 'updatedAt' | 'updatedBy'>;
 
 /**
  * 通知

@@ -1,41 +1,11 @@
 import { cloneDeep } from "lodash";
 import type { RapidPage, RapidEntityFormConfig, SonicEntityDetailsRockConfig, SonicEntityListRockConfig } from "@ruiapp/rapid-extension";
-import { materialFormatStrTemplate } from "~/utils/fmt";
 
-const orderItemFormConfig: Partial<RapidEntityFormConfig> = {
+const productionReportItemFormConfig: Partial<RapidEntityFormConfig> = {
   items: [
     {
       type: "auto",
-      code: "orderNum",
-    },
-    {
-      type: "auto",
-      code: "subject",
-      listDataFindOptions: {
-        properties: ["id", "code", "name", "specification", "defaultUnit"],
-      },
-      formControlProps: {
-        dropdownMatchSelectWidth: 500,
-        listTextFormat: materialFormatStrTemplate,
-        listFilterFields: ["name", "code", "specification"],
-        columns: [
-          { code: "code", title: "编号", width: 120 },
-          { code: "name", title: "名称", width: 120 },
-          { code: "specification", title: "规格", width: 120 },
-        ],
-      },
-    },
-    {
-      type: "auto",
-      code: "name",
-    },
-    {
-      type: "auto",
-      code: "tags",
-    },
-    {
-      type: "textarea",
-      code: "description",
+      code: "orderItem",
     },
     {
       type: "auto",
@@ -45,48 +15,36 @@ const orderItemFormConfig: Partial<RapidEntityFormConfig> = {
       type: "auto",
       code: "unit",
     },
-    {
-      type: "auto",
-      code: "price",
-    },
-    {
-      type: "auto",
-      code: "taxRate",
-    },
   ],
-  onValuesChange: [
+};
+
+const deliveryReportItemFormConfig: Partial<RapidEntityFormConfig> = {
+  items: [
     {
-      $action: "script",
-      script: `
-        const changedValues = event.args[0] || {};
-        if(changedValues.hasOwnProperty('subject')) {
-          const _ = event.framework.getExpressionVars()._;
-          const materials = _.get(event.scope.stores['dataFormItemList-subject'], 'data.list');
-          const subject = _.find(materials, function (item) { return item.id == changedValues.subject });
-          const name = subject.name + (subject.specification ? ' (' + subject.specification + ')' : '');
-          const unitId = _.get(subject, 'defaultUnit.id');
-          event.page.sendComponentMessage(event.sender.$id, {
-            name: "setFieldsValue",
-            payload: {
-              name: name,
-              unit: unitId,
-            }
-          });
-        }
-      `,
+      type: "auto",
+      code: "orderItem",
+    },
+    {
+      type: "auto",
+      code: "quantity",
+    },
+    {
+      type: "auto",
+      code: "unit",
     },
   ],
 };
 
 const page: RapidPage = {
-  code: "cbs_order_details",
+  code: "supplier_customer_order_details",
   //@ts-ignore
-  parentCode: "cbs_order_list",
+  parentCode: "supplier_customer_order_list",
   name: "订单详情",
   title: "订单详情",
-  permissionCheck: { any: ["cbsOrder.view", "cbsOrder.manage"] },
+  permissionCheck: { any: [] },
   view: [
     {
+      $id: "entityDetails",
       $type: "sonicEntityDetails",
       entityCode: "CbsOrder",
       titlePropertyCode: "code",
@@ -104,6 +62,20 @@ const page: RapidPage = {
       },
     } satisfies SonicEntityDetailsRockConfig,
     {
+      $id: "towerPurchaseOrderProgressBox",
+      $type: "box",
+      style: {
+        padding: "20px 10px 40px",
+      },
+      children: [
+        {
+          $id: "towerPurchaseOrderProgress",
+          $type: "towerPurchaseOrderProgress",
+        },
+      ],
+    },
+
+    {
       $type: "antdTabs",
       items: [
         {
@@ -118,30 +90,12 @@ const page: RapidPage = {
               selectionMode: "none",
               fixedFilters: [
                 {
-                  field: "order",
-                  operator: "exists",
-                  filters: [
-                    {
-                      field: "id",
-                      operator: "eq",
-                      value: "",
-                    },
-                  ],
+                  operator: "eq",
+                  field: "order_id",
+                  value: "",
                 },
               ],
-              listActions: [
-                {
-                  $type: "sonicToolbarNewEntityButton",
-                  text: "新建",
-                  icon: "PlusOutlined",
-                  actionStyle: "primary",
-                },
-                // {
-                //   $type: "sonicToolbarRefreshButton",
-                //   text: "刷新",
-                //   icon: "ReloadOutlined",
-                // },
-              ],
+              listActions: [],
               pageSize: -1,
               orderBy: [
                 {
@@ -157,11 +111,6 @@ const page: RapidPage = {
                 {
                   type: "auto",
                   code: "name",
-                  width: "200px",
-                },
-                {
-                  type: "auto",
-                  code: "tags",
                   width: "200px",
                 },
                 {
@@ -226,24 +175,6 @@ const page: RapidPage = {
                   },
                 },
               ],
-              actions: [
-                {
-                  $type: "sonicRecordActionEditEntity",
-                  code: "edit",
-                  actionType: "edit",
-                  actionText: "修改",
-                },
-                {
-                  $type: "sonicRecordActionDeleteEntity",
-                  code: "delete",
-                  actionType: "delete",
-                  actionText: "删除",
-                  dataSourceCode: "list",
-                  entityCode: "CbsOrderItem",
-                },
-              ],
-              newForm: cloneDeep(orderItemFormConfig),
-              editForm: cloneDeep(orderItemFormConfig),
               footer: [
                 {
                   $type: "antdAlert",
@@ -258,205 +189,184 @@ const page: RapidPage = {
                 },
               ],
               $exps: {
-                "fixedFilters[0].filters[0].value": "$rui.parseQuery().id",
+                "fixedFilters[0].value": "$rui.parseQuery().id",
+              },
+            },
+          ],
+        },
+        {
+          key: "productionReports",
+          label: "生产进度",
+          children: [
+            {
+              $id: "productionReportItemList",
+              $type: "sonicEntityList",
+              entityCode: "TowerOrderProductionReportItem",
+              viewMode: "table",
+              selectionMode: "none",
+              fixedFilters: [
+                {
+                  operator: "eq",
+                  field: "order_id",
+                  value: "",
+                },
+              ],
+              listActions: [
+                {
+                  $type: "sonicToolbarNewEntityButton",
+                  text: "新建",
+                  icon: "PlusOutlined",
+                  actionStyle: "primary",
+                },
+              ],
+              pageSize: -1,
+              orderBy: [
+                {
+                  field: "id",
+                  desc: true,
+                },
+              ],
+              columns: [
+                {
+                  type: "auto",
+                  code: "reportTime",
+                  width: "160px",
+                },
+                {
+                  type: "auto",
+                  code: "orderItem",
+                },
+                {
+                  type: "auto",
+                  code: "quantity",
+                  width: "100px",
+                  align: "right",
+                },
+                {
+                  type: "auto",
+                  code: "unit",
+                  width: "50px",
+                  rendererProps: {
+                    format: "{{name}}",
+                  },
+                },
+              ],
+              actions: [
+                {
+                  $type: "sonicRecordActionEditEntity",
+                  code: "edit",
+                  actionType: "edit",
+                  actionText: "修改",
+                },
+                {
+                  $type: "sonicRecordActionDeleteEntity",
+                  code: "delete",
+                  actionType: "delete",
+                  actionText: "删除",
+                  dataSourceCode: "list",
+                  entityCode: "TowerOrderProductionReportItem",
+                },
+              ],
+              newForm: cloneDeep(productionReportItemFormConfig),
+              editForm: cloneDeep(productionReportItemFormConfig),
+              $exps: {
+                "fixedFilters[0].value": "$rui.parseQuery().id",
                 "newForm.fixedFields.order_id": "$rui.parseQuery().id",
               },
             } satisfies SonicEntityListRockConfig,
           ],
         },
         {
-          key: "projects",
-          label: "相关项目",
-          children: [
-            {
-              $id: "orderList",
-              $type: "sonicEntityList",
-              entityCode: "PmProject",
-              viewMode: "table",
-              selectionMode: "none",
-              fixedFilters: [
-                {
-                  field: "orders",
-                  operator: "exists",
-                  filters: [
-                    {
-                      field: "id",
-                      operator: "eq",
-                      value: "",
-                    },
-                  ],
-                },
-              ],
-              // listActions: [
-              //   {
-              //     $type: "sonicToolbarRefreshButton",
-              //     text: "刷新",
-              //     icon: "ReloadOutlined",
-              //   },
-              // ],
-              pageSize: -1,
-              columns: [
-                {
-                  type: "link",
-                  code: "code",
-                  fixed: "left",
-                  width: "100px",
-                  rendererProps: {
-                    url: "/pages/pm_project_details?id={{id}}",
-                  },
-                },
-                {
-                  type: "link",
-                  code: "name",
-                  fixed: "left",
-                  width: "200px",
-                  rendererProps: {
-                    url: "/pages/pm_project_details?id={{id}}",
-                  },
-                },
-                {
-                  type: "auto",
-                  code: "category",
-                  fieldName: "category.name",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "customer",
-                  fieldName: "customer.name",
-                  width: "150px",
-                },
-                {
-                  type: "auto",
-                  code: "owner",
-                  fieldName: "owner.name",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "salesman",
-                  fieldName: "salesman.name",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "projectManager",
-                  fieldName: "projectManager.name",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "distributor",
-                  fieldName: "distributor.name",
-                  width: "150px",
-                },
-                {
-                  type: "auto",
-                  code: "stage",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "state",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "createdAt",
-                  width: "150px",
-                },
-              ],
-              $exps: {
-                "fixedFilters[0].filters[0].value": "$rui.parseQuery().id",
-              },
-            },
-          ],
+          key: "qualityReports",
+          label: "质检报告",
+          children: [],
         },
+
         {
-          key: "contracts",
-          label: "相关合同",
+          key: "deliveryReports",
+          label: "发货记录",
           children: [
             {
-              $id: "contractList",
+              $id: "deliveryReportItemList",
               $type: "sonicEntityList",
-              entityCode: "CbsContract",
+              entityCode: "TowerOrderDeliveryReportItem",
               viewMode: "table",
               selectionMode: "none",
               fixedFilters: [
                 {
-                  field: "orders",
-                  operator: "exists",
-                  filters: [
-                    {
-                      field: "id",
-                      operator: "eq",
-                      value: "",
-                    },
-                  ],
+                  operator: "eq",
+                  field: "order_id",
+                  value: "",
                 },
               ],
-              // listActions: [
-              //   {
-              //     $type: "sonicToolbarRefreshButton",
-              //     text: "刷新",
-              //     icon: "ReloadOutlined",
-              //   },
-              // ],
+              listActions: [
+                {
+                  $type: "sonicToolbarNewEntityButton",
+                  text: "新建",
+                  icon: "PlusOutlined",
+                  actionStyle: "primary",
+                },
+              ],
               pageSize: -1,
+              orderBy: [
+                {
+                  field: "id",
+                  desc: true,
+                },
+              ],
               columns: [
                 {
                   type: "auto",
-                  code: "kind",
-                  fixed: "left",
-                  width: "100px",
+                  code: "reportTime",
+                  width: "160px",
                 },
                 {
                   type: "auto",
-                  code: "code",
-                  fixed: "left",
-                  width: "100px",
+                  code: "orderItem",
                 },
                 {
-                  type: "link",
-                  code: "name",
-                  fixed: "left",
+                  type: "auto",
+                  code: "quantity",
+                  width: "100px",
+                  align: "right",
+                },
+                {
+                  type: "auto",
+                  code: "unit",
+                  width: "50px",
                   rendererProps: {
-                    url: "/pages/cbs_contract_details?id={{id}}",
+                    format: "{{name}}",
                   },
                 },
+              ],
+              actions: [
                 {
-                  type: "auto",
-                  code: "salesman",
-                  fieldName: "salesman.name",
-                  width: "100px",
+                  $type: "sonicRecordActionEditEntity",
+                  code: "edit",
+                  actionType: "edit",
+                  actionText: "修改",
                 },
                 {
-                  type: "auto",
-                  code: "totalAmount",
-                  width: "120px",
-                  align: "right",
-                  rendererType: "rapidCurrencyRenderer",
-                },
-                {
-                  type: "auto",
-                  code: "state",
-                  width: "100px",
-                },
-                {
-                  type: "auto",
-                  code: "createdAt",
-                  width: "150px",
+                  $type: "sonicRecordActionDeleteEntity",
+                  code: "delete",
+                  actionType: "delete",
+                  actionText: "删除",
+                  dataSourceCode: "list",
+                  entityCode: "TowerOrderDeliveryReportItem",
                 },
               ],
+              newForm: cloneDeep(deliveryReportItemFormConfig),
+              editForm: cloneDeep(deliveryReportItemFormConfig),
               $exps: {
-                "fixedFilters[0].filters[0].value": "$rui.parseQuery().id",
+                "fixedFilters[0].value": "$rui.parseQuery().id",
+                "newForm.fixedFields.order_id": "$rui.parseQuery().id",
               },
-            },
+            } satisfies SonicEntityListRockConfig,
           ],
         },
         {
           key: "transactions",
-          label: "收支记录",
+          label: "付款记录",
           children: [
             {
               $id: "transactionList",
@@ -477,13 +387,6 @@ const page: RapidPage = {
                   ],
                 },
               ],
-              // listActions: [
-              //   {
-              //     $type: "sonicToolbarRefreshButton",
-              //     text: "刷新",
-              //     icon: "ReloadOutlined",
-              //   },
-              // ],
               orderBy: [
                 {
                   field: "transferedAt",

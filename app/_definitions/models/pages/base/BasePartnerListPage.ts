@@ -57,7 +57,7 @@ const page: RapidPage = {
         {
           type: "link",
           code: "code",
-          width: "100px",
+          width: "200px",
           fixed: "left",
         },
         {

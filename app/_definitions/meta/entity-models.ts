@@ -175,6 +175,8 @@ import pm$PmWorkItemTypeStep from '../models/entities/pm/PmWorkItemTypeStep';
 import setting$SystemSettingGroupSetting from '../models/entities/setting/SystemSettingGroupSetting';
 import setting$SystemSettingItem from '../models/entities/setting/SystemSettingItem';
 import setting$SystemSettingItemSetting from '../models/entities/setting/SystemSettingItemSetting';
+import tower$TowerOrderDeliveryReportItem from '../models/entities/tower/TowerOrderDeliveryReportItem';
+import tower$TowerOrderProductionReportItem from '../models/entities/tower/TowerOrderProductionReportItem';
 import utility$Notification from '../models/entities/utility/Notification';
 
 const entityDefinitions = [
@@ -353,6 +355,8 @@ const entityDefinitions = [
   setting$SystemSettingGroupSetting,
   setting$SystemSettingItem,
   setting$SystemSettingItemSetting,
+  tower$TowerOrderDeliveryReportItem,
+  tower$TowerOrderProductionReportItem,
   utility$Notification,
 ];
 const configuredEntities:TRapidEntity[] = [
@@ -531,6 +535,8 @@ const configuredEntities:TRapidEntity[] = [
   autoConfigureRapidEntity(setting$SystemSettingGroupSetting, entityDefinitions),
   autoConfigureRapidEntity(setting$SystemSettingItem, entityDefinitions),
   autoConfigureRapidEntity(setting$SystemSettingItemSetting, entityDefinitions),
+  autoConfigureRapidEntity(tower$TowerOrderDeliveryReportItem, entityDefinitions),
+  autoConfigureRapidEntity(tower$TowerOrderProductionReportItem, entityDefinitions),
   autoConfigureRapidEntity(utility$Notification, entityDefinitions),
 ];
 export default configuredEntities;
